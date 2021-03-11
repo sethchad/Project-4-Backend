@@ -9,8 +9,8 @@ app.use(methodOverride("_method"));
 // HOMEPAGE
 app.get("/", (req, res) => {
   res.json({ 
-    message: "express api app is working",
-    array: ["Seth", "Chadwick"]
+    message: "Recipe App API is working",
+    array: ["Seth", "Chadwick"],
   });
 });
 
@@ -23,5 +23,5 @@ app.get("/", (req, res) => {
 // });
 
 app.listen(3005, () => {
-  console.log("listening");
+  console.log("Recipe App API is listening");
 });
