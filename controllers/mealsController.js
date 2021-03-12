@@ -3,21 +3,12 @@ const router = express.Router();
 
 const UserModel = require("../models").User;
 const MealModel = require("../models").Meal;
-// const IngredientModel = require("../models").Ingredient;
+const IngredientModel = require("../models").Ingredient;
 
-// GET MEAL PROFILE
+// GET MEAL DETAIL
 router.get("/meal/:id", async (req, res) => {
   let meal = await MealModel.findByPk(req.params.id, {
-    include: [
-      {
-        model: UserModel,
-        attributes: ["id", "name"]
-      }
-      // ,{
-      //   model: SongModel,
-      //   attributes: ["title"]
-      // }
-    ]
+    include: IngredientModel,
   });
   res.json({ meal });
 });
@@ -25,9 +16,9 @@ router.get("/meal/:id", async (req, res) => {
 // GET ALL MEALS
 router.get("/", async (req, res) => {
   let meals = await MealModel.findAll(
-    // {
-    //   include: IngredientModel,
-    // }
+    {
+      include: IngredientModel,
+    }
   );
   res.json({ meals });
 });
@@ -64,8 +55,11 @@ router.delete("/:id", async (req, res) => {
     await MealModel.destroy({
       where: { id: req.params.id },
     });
+    await IngredientModel.destroy({
+      where: { mealId: req.params.id }
+    })
     res.json({ 
-      message: `Meal with id ${req.params.id} has been deleted`
+      message: `Meal ID ${req.params.id} has been deleted`
     });
   } catch(e) {
     res.json({ message: "Could not delete meal"})
