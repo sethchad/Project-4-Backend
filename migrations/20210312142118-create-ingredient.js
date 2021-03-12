@@ -11,6 +11,10 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      mealId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

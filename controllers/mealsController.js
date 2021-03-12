@@ -24,7 +24,7 @@ router.get("/meal/:id", async (req, res) => {
 
 // GET ALL MEALS
 router.get("/", async (req, res) => {
-  let meals = await ArtistModel.findAll(
+  let meals = await MealModel.findAll(
     // {
     //   include: IngredientModel,
     // }
