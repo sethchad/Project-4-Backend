@@ -10,6 +10,9 @@ Express
 Sequelize
 - npm install sequelize-cli sequelize pg
 - npx sequelize init
-- npx sequelize model:generate --name user --attributes name:string,username:string,password:string
 - createdb recipe_app_dev
+- npx sequelize model:generate --name User --attributes name:string,username:string,password:string
+- npx sequelize model:generate --name Meal --attributes name:string
+- npx sequelize model:generate --name Ingredient --attributes description:string
+- npx sequelize model:generate --name UserMeal --attributes userId:integer,mealId:integer
 - npx seqeulize db:migrate
