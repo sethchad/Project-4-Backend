@@ -11,6 +11,13 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      imageUrl: {
+        type: Sequelize.STRING,
+        defaultValue: 'https://i.imgur.com/KdY64Iv.png'
+      },
+      location: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
