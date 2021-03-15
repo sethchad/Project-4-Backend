@@ -1,5 +1,7 @@
 'use strict';
 
+const { Sequelize } = require("../models");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     let meals = await queryInterface.bulkInsert("Meals", [
@@ -21,5 +23,8 @@ module.exports = {
       { userId: 1, mealId: 1 },
       { userId: 2, mealId: 2 },
     ]);
-  }
+  },
+
+  // added the down feature
+  down: async (queryInterface, Sequelize) => {},
 };

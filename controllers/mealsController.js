@@ -15,11 +15,10 @@ router.get("/meal/:id", async (req, res) => {
 
 // GET ALL MEALS
 router.get("/", async (req, res) => {
-  let meals = await MealModel.findAll(
-    {
-      include: IngredientModel,
-    }
-  );
+  let meals = await MealModel.findAll({
+    include: IngredientModel, 
+    order: ['id'] 
+  });
   res.json({ meals });
 });
 
