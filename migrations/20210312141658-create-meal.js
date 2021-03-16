@@ -18,6 +18,9 @@ module.exports = {
       location: {
         type: Sequelize.STRING
       },
+      directions: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

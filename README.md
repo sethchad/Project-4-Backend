@@ -15,8 +15,8 @@ Sequelize
 - npx sequelize model:generate --name Meal --attributes name:string
 - npx sequelize model:generate --name Ingredient --attributes description:string
 - npx sequelize model:generate --name UserMeal --attributes userId:integer,mealId:integer
-- npx sequelize db:migrate
 - npx sequelize seed:generate --name demo-user-meal-ingredient
+- npx sequelize db:migrate
 - npx sequelize db:seed:all
 - Undoing migration
   * npx sequelize db:migrate:undo:all

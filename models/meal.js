@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
   Meal.init({
     name: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
-    location: DataTypes.STRING
+    location: DataTypes.STRING,
+    directions: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Meal',
