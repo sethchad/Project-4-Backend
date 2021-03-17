@@ -45,10 +45,10 @@ app.get("/", (req, res) => {
 // app.use("/api/users", require("./controllers/usersController.js"));
 app.use("/api/meals", require("./controllers/mealsController.js"));
 
-// app.listen(process.env.PORT, () => {
-//   console.log("Nodemon listening");
-// });
-
-app.listen(3005, () => {
-  console.log("Recipe App API is listening");
+app.listen(process.env.PORT, () => {
+  console.log("Nodemon listening");
 });
+
+// app.listen(3005, () => {
+//   console.log("Recipe App API is listening");
+// });
