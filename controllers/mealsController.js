@@ -72,4 +72,15 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// DELETE INGREDIENT
+router.delete("/:id/deleteingredient", async (req, res) => {
+  try {
+    await IngredientModel.destroy({
+      where: { id: req.params.id },
+    });
+  } catch(e) {
+    res.json({ message: "ERROR: Ingredient could not be deleted"})
+  }
+});
+
 module.exports = router;
