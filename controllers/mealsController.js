@@ -5,19 +5,26 @@ const UserModel = require("../models").User;
 const MealModel = require("../models").Meal;
 const IngredientModel = require("../models").Ingredient;
 
-// GET MEAL DETAIL
-router.get("/meal/:id", async (req, res) => {
-  let meal = await MealModel.findByPk(req.params.id, {
-    include: IngredientModel,
-  });
-  res.json({ meal });
-});
+// // GET MEAL DETAIL
+// router.get("/meal/:id", async (req, res) => {
+//   let meal = await MealModel.findByPk(req.params.id, {
+//     include: [{ 
+//       model: IngredientModel, 
+//       order: [['id', 'ASC']]
+//     }]
+//   });
+//   res.json({ meal });
+// });
 
 // GET ALL MEALS
 router.get("/", async (req, res) => {
   let meals = await MealModel.findAll({
     include: IngredientModel, 
-    order: ['id'] 
+    // order: ['id']
+    order: [
+      [ 'id', 'asc' ],
+      [ IngredientModel, 'id', 'asc' ]
+    ] 
   });
   res.json({ meals });
 });
