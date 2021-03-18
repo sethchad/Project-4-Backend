@@ -35,15 +35,15 @@ app.use(methodOverride("_method"));
 // HOMEPAGE
 app.get("/", (req, res) => {
   res.json({ 
-    message: "Recipe App API is working",
+    message: "Recipe Book API is working",
     array: ["Seth", "Chadwick"],
   });
 });
 
 
+app.use("/api/meals", require("./controllers/mealsController.js"));
 // app.use("/api/auth", require("./controllers/authController.js"));
 // app.use("/api/users", require("./controllers/usersController.js"));
-app.use("/api/meals", require("./controllers/mealsController.js"));
 
 app.listen(process.env.PORT, () => {
   console.log("Nodemon listening");
